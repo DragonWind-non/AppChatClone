@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "server\\server.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "RegisterClient\\RegisterClient.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "frmClient\\MainClient.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

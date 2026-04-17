@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="frmClient/MainClient.csproj" />
+  <Project Path="RegisterClient/RegisterClient.csproj" Id="ef6fb193-fdd5-4591-990b-e3f1efb4fbdb" />
+  <Project Path="server/server.csproj" Id="55f95bdf-5794-4944-8ac6-7c151297afce" DisplayName="Server" />
+</Solution>

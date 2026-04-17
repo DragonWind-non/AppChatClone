@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\VisualStudio2022code\\appchatanti\\AppChatanti\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EF6FB193-FDD5-4591-990B-E3F1EFB4FBDB}|RegisterClient\\RegisterClient.csproj|d:\\visualstudio2022code\\appchatanti\\appchatanti\\registerclient\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{EF6FB193-FDD5-4591-990B-E3F1EFB4FBDB}|RegisterClient\\RegisterClient.csproj|solutionrelative:registerclient\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BB67BA8-1864-3076-9E11-4C7622FFD543}|frmClient\\MainClient.csproj|d:\\visualstudio2022code\\appchatanti\\appchatanti\\frmclient\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3BB67BA8-1864-3076-9E11-4C7622FFD543}|frmClient\\MainClient.csproj|solutionrelative:frmclient\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BB67BA8-1864-3076-9E11-4C7622FFD543}|frmClient\\MainClient.csproj|d:\\visualstudio2022code\\appchatanti\\appchatanti\\frmclient\\privatechatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3BB67BA8-1864-3076-9E11-4C7622FFD543}|frmClient\\MainClient.csproj|solutionrelative:frmclient\\privatechatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\VisualStudio2022code\\appchatanti\\AppChatanti\\frmClient\\Form1.cs",
+              "RelativeDocumentMoniker": "frmClient\\Form1.cs",
+              "ToolTip": "D:\\VisualStudio2022code\\appchatanti\\AppChatanti\\frmClient\\Form1.cs [Design]",
+              "RelativeToolTip": "frmClient\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T10:33:43.577Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PrivateChatForm.cs [Design]",
+              "DocumentMoniker": "D:\\VisualStudio2022code\\appchatanti\\AppChatanti\\frmClient\\PrivateChatForm.cs",
+              "RelativeDocumentMoniker": "frmClient\\PrivateChatForm.cs",
+              "ToolTip": "D:\\VisualStudio2022code\\appchatanti\\AppChatanti\\frmClient\\PrivateChatForm.cs [Design]",
+              "RelativeToolTip": "frmClient\\PrivateChatForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T15:14:18.015Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\VisualStudio2022code\\appchatanti\\AppChatanti\\RegisterClient\\Form1.cs",
+              "RelativeDocumentMoniker": "RegisterClient\\Form1.cs",
+              "ToolTip": "D:\\VisualStudio2022code\\appchatanti\\AppChatanti\\RegisterClient\\Form1.cs [Design]",
+              "RelativeToolTip": "RegisterClient\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T15:14:00.54Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

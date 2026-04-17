@@ -1,0 +1,17 @@
+D:\VisualStudio2022code\frmClient\frmClient\bin\Debug\net10.0-windows\frmClient.exe
+D:\VisualStudio2022code\frmClient\frmClient\bin\Debug\net10.0-windows\frmClient.deps.json
+D:\VisualStudio2022code\frmClient\frmClient\bin\Debug\net10.0-windows\frmClient.runtimeconfig.json
+D:\VisualStudio2022code\frmClient\frmClient\bin\Debug\net10.0-windows\frmClient.dll
+D:\VisualStudio2022code\frmClient\frmClient\bin\Debug\net10.0-windows\frmClient.pdb
+D:\VisualStudio2022code\frmClient\frmClient\obj\Debug\net10.0-windows\frmClient.Form1.resources
+D:\VisualStudio2022code\frmClient\frmClient\obj\Debug\net10.0-windows\frmClient.csproj.GenerateResource.cache
+D:\VisualStudio2022code\frmClient\frmClient\obj\Debug\net10.0-windows\frmClient.GeneratedMSBuildEditorConfig.editorconfig
+D:\VisualStudio2022code\frmClient\frmClient\obj\Debug\net10.0-windows\frmClient.AssemblyInfoInputs.cache
+D:\VisualStudio2022code\frmClient\frmClient\obj\Debug\net10.0-windows\frmClient.AssemblyInfo.cs
+D:\VisualStudio2022code\frmClient\frmClient\obj\Debug\net10.0-windows\frmClient.csproj.CoreCompileInputs.cache
+D:\VisualStudio2022code\frmClient\frmClient\obj\Debug\net10.0-windows\frmClient.dll
+D:\VisualStudio2022code\frmClient\frmClient\obj\Debug\net10.0-windows\refint\frmClient.dll
+D:\VisualStudio2022code\frmClient\frmClient\obj\Debug\net10.0-windows\frmClient.pdb
+D:\VisualStudio2022code\frmClient\frmClient\obj\Debug\net10.0-windows\frmClient.genruntimeconfig.cache
+D:\VisualStudio2022code\frmClient\frmClient\obj\Debug\net10.0-windows\ref\frmClient.dll
+D:\VisualStudio2022code\frmClient\frmClient\obj\Debug\net10.0-windows\frmClient.Properties.Resources.resources
