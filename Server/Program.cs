@@ -65,20 +65,28 @@ namespace Server
 
                     if (msg.Type == "JOIN")
                     {
+                        if (!string.IsNullOrEmpty(username) || string.IsNullOrWhiteSpace(msg.From)
+                            || !_clients.TryAdd(msg.From, client)) break;
                         username = msg.From;
-                        _clients.AddOrUpdate(username, client, (k, v) => client);
                         Console.WriteLine($"[JOIN] {username} đã vào phòng.");
                         
                         await BroadcastAsync(msg);
                         await BroadcastUserListAsync();
                     }
+                    else if (string.IsNullOrEmpty(username))
+                    {
+                        break;
+                    }
                     else if (msg.Type == "PUBLIC")
                     {
+                        msg.From = username;
                         Console.WriteLine($"[PUBLIC] {msg.From}: {msg.Content}");
                         await BroadcastAsync(msg);
                     }
                     else if (msg.Type == "PRIVATE")
                     {
+                        if (string.IsNullOrWhiteSpace(msg.To)) continue;
+                        msg.From = username;
                         Console.WriteLine($"[PRIVATE] {msg.From} -> {msg.To}: {msg.Content}");
                         await SendToUserAsync(msg.To, msg);
                     }

@@ -1,38 +1,64 @@
-# LanChat - AppChat (Phiên bản viết trên Project gốc)
+# LAN Chat — C# TCP Client/Server
 
-## Cấu trúc dự án
-Dự án được xây dựng trực tiếp vào 3 folder gốc như đúng yêu cầu của bạn:
+Ứng dụng chat nội bộ để thực hành TCP sockets và giao diện Windows Forms. Server chuyển tiếp tin nhắn JSON giữa các client; hỗ trợ chat chung, chat riêng và danh sách người dùng online.
 
-1. **Server** (`Server\Server.csproj`):
-   - Chạy trên `.NET 10`, ứng dụng Console.
-   - Quản lý đa luồng (Task.Run) cho từng kết nối TCP.
-   - Relay tin nhắn JSON (Public/Private/Broadcast User List).
+**Công nghệ:** C# · .NET 10 · WinForms · TCP · JSON.
 
-2. **RegisterClient** (`RegisterClient\RegisterClient.csproj`):
-   - Màn hình nhập IP, Port, Username.
-   - Sẽ tự động gọi `MainClient` nếu mọi thứ hợp lệ thông qua tiến trình ngầm (mô phỏng gọi executable chuyên biệt).
-
-3. **MainClient** (`frmClient\MainClient.csproj`):
-   - Giao diện thao tác chính.
-   - Hiển thị danh sách Online, màu sắc tin nhắn (Đen: Chat public, Xanh: Chat private, Xanh lá/Đỏ: Người dùng ra/vào).
-   - Nhấn Đúp Chuột hoặc nhấn Chuột Phải -> ContextMenu chọn mục vào tên User trên danh sách để tự mở form `PrivateChatForm`.
-
-## Hướng dẫn khởi chạy
-
-### Chạy Server
-Mở Terminal, trỏ vào thư mục `Server` và gõ:
-```powershell
-dotnet run --project Server.csproj
+```mermaid
+flowchart LR
+    A[WinForms Client A] <-->|TCP / JSON lines| S[Console Server]
+    B[WinForms Client B] <-->|TCP / JSON lines| S
 ```
-*(Server sẽ hỏi bạn Port, hoặc bạn có thể ấn Enter để lấy Port 8888 mặc định).*
 
-### Chạy Ứng dụng Client (App chat)
-Mở một (hoặc nhiều) Terminal khác, trỏ vào thư mục `RegisterClient` và gõ:
+## Chạy thử trên Windows
+
+Cần Windows và .NET 10 SDK. Clone repository, mở terminal tại thư mục gốc:
+
 ```powershell
-dotnet run --project RegisterClient.csproj
+git clone https://github.com/DragonWind-non/AppChatClone.git
+cd AppChatClone
+dotnet build frmClient.slnx -c Release
+dotnet run --project Server/Server.csproj
 ```
-*(Điền tên đăng nhập tùy ý, IP là 127.0.0.1 và ấn "Kết Nối". Nó sẽ đóng cửa sổ này và tự động gọi Form chính của `MainClient` lên cực kỹ mượt mà!)*
 
-Bạn có thể mở đồng thời 2-3 Terminal gõ `dotnet run --project RegisterClient.csproj` để mô phỏng 2-3 người đang nói chuyện với nhau trong phòng.
+Nhập cổng hoặc Enter để dùng `8888`. Trong terminal khác:
 
-Chúc bạn có trải nghiệm tuyệt vời với "đứa con tinh thần" của mình! Dữ liệu chạy hoàn toàn chuẩn JSON và không bị Crash (Thread-Safe an toàn tuyệt đối).
+```powershell
+dotnet run --project RegisterClient/RegisterClient.csproj
+```
+
+Nhập IP server, cổng và username chưa được sử dụng. Khi thử trên một máy, IP là `127.0.0.1`; mở thêm client để kiểm tra chat chung và chat riêng.
+
+Khi thử trên hai máy cùng LAN, dùng IPv4 của máy chạy server và cho phép đúng cổng TCP trong Windows Firewall trên mạng Private. Không tắt toàn bộ firewall. Máy client cũng cần mã nguồn và .NET SDK vì màn hình đăng nhập khởi chạy project MainClient bằng `dotnet run`.
+
+## Cấu trúc
+
+| Thành phần | Trách nhiệm |
+|---|---|
+| `Server/` | TCP listener, quản lý username và chuyển tiếp tin nhắn |
+| `RegisterClient/` | Nhập IP/cổng/username, khởi chạy client chính |
+| `frmClient/` | Giao diện chat và kết nối TCP |
+| `tests/test_protocol.py` | Kiểm thử tích hợp qua TCP thật |
+
+Mỗi dòng trên kết nối là một đối tượng JSON. Client gửi `JOIN` trước khi chat; server phát `USER_LIST` khi danh sách online thay đổi. Tin nhắn `PUBLIC` gửi cho cả phòng, `PRIVATE` chuyển cho username đích.
+
+## Kiểm chứng
+
+Bộ kiểm thử dùng Python 3 và thư viện chuẩn, không cần cài package:
+
+```powershell
+dotnet build Server/Server.csproj -c Release
+python tests/test_protocol.py
+```
+
+Năm ca kiểm tra server thật: username trùng không thay thế kết nối gốc; không chat trước JOIN; không đổi danh tính bằng JOIN lần hai; server gắn tên người gửi đúng kết nối cho cả chat chung và riêng.
+
+## Giới hạn
+
+- Đây là bài thực hành trong LAN tin cậy: chưa có mật khẩu, xác thực tài khoản hoặc TLS.
+- Username gắn với kết nối chỉ ngăn giả danh trong cùng phiên; không chứng minh danh tính ngoài đời.
+- Chưa có giới hạn kích thước dòng JSON, giới hạn kết nối, reconnect hoặc kiểm thử tải/gửi đồng thời.
+- Chưa đóng gói bộ cài độc lập. Các ca TCP không thay thế kiểm tra giao diện WinForms và hai máy LAN thật.
+- Build hiện còn các cảnh báo nullable; cần xử lý trước khi coi là bản phát hành hoàn chỉnh.
+
+Cache Visual Studio, đầu ra build và cấu hình người dùng được bỏ khỏi phiên bản hiện tại. Lịch sử commit cũ vẫn có thể chứa những tệp đó; việc dọn phiên bản mới không xóa lịch sử.
